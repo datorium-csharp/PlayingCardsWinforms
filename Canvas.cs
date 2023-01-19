@@ -67,7 +67,16 @@ namespace PlayingCardsWinforms
 
         private void deckCardsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
+            int count = 0;
+            for (int collumns = 0; collumns < 9; collumns++)
+            {
+                for (int rows = 0; rows < 4; rows++)
+                {
+                    cards[count].Left = cards[count].Width + cards[count].Width * collumns;
+                    cards[count].Top = cards[count].Height * rows;
+                    count++;
+                }
+            }
+        }    
     }
 }
