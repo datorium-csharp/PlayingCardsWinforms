@@ -15,6 +15,7 @@ namespace PlayingCardsWinforms
 
         List<PictureBox> cards = new List<PictureBox>();
         Random rand = new Random();
+        bool flipped = false;
 
         public Form1()
         {
@@ -28,12 +29,45 @@ namespace PlayingCardsWinforms
                 PictureBox card = new PictureBox();
                 card.Width = 100;
                 card.Height = 200;
-                card.BackColor = Color.SteelBlue;
+
+                card.Image = Properties.Resources.queen_of_diamonds2;
+                card.SizeMode = PictureBoxSizeMode.StretchImage;
+
                 card.Top = rand.Next(400);
                 card.Left = rand.Next(800);
                 cards.Add(card);
                 this.Controls.Add(card);
             }            
+        }
+
+        private void actionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flipCardsToolStripMenuItem_Click(object sender, EventArgs e)
+        {            
+            if (flipped == false)
+            {
+                foreach (var card in cards)
+                {
+                    card.Image = Properties.Resources.card_back_red;
+                }
+                flipped = true;
+            }
+            else
+            {
+                foreach (var card in cards)
+                {
+                    card.Image = Properties.Resources.queen_of_diamonds2;
+                }
+                flipped = false;
+            }       
+        }
+
+        private void deckCardsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

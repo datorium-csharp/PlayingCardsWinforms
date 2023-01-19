@@ -32,6 +32,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.createCardsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.flipCardsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deckCardsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -39,7 +42,8 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.createCardsToolStripMenuItem});
+            this.createCardsToolStripMenuItem,
+            this.actionsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1031, 24);
@@ -58,6 +62,30 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // actionsToolStripMenuItem
+            // 
+            this.actionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.flipCardsToolStripMenuItem,
+            this.deckCardsToolStripMenuItem});
+            this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
+            this.actionsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.actionsToolStripMenuItem.Text = "Actions";
+            this.actionsToolStripMenuItem.Click += new System.EventHandler(this.actionsToolStripMenuItem_Click);
+            // 
+            // flipCardsToolStripMenuItem
+            // 
+            this.flipCardsToolStripMenuItem.Name = "flipCardsToolStripMenuItem";
+            this.flipCardsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.flipCardsToolStripMenuItem.Text = "Flip cards";
+            this.flipCardsToolStripMenuItem.Click += new System.EventHandler(this.flipCardsToolStripMenuItem_Click);
+            // 
+            // deckCardsToolStripMenuItem
+            // 
+            this.deckCardsToolStripMenuItem.Name = "deckCardsToolStripMenuItem";
+            this.deckCardsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deckCardsToolStripMenuItem.Text = "Deck cards";
+            this.deckCardsToolStripMenuItem.Click += new System.EventHandler(this.deckCardsToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -80,6 +108,9 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem createCardsToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem actionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem flipCardsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deckCardsToolStripMenuItem;
     }
 }
 
