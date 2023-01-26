@@ -16,6 +16,9 @@ namespace PlayingCardsWinforms
         List<PictureBox> cards = new List<PictureBox>();
         Random rand = new Random();
         bool flipped = false;
+        bool mouseHold = false;
+        int deltaX = 0;
+        int deltaY = 0;
 
         public Form1()
         {
@@ -35,10 +38,50 @@ namespace PlayingCardsWinforms
 
                 card.Top = rand.Next(400);
                 card.Left = rand.Next(800);
+
+                card.MouseDown += Card_MouseDown;
+                card.MouseUp += Card_MouseUp;
+                card.MouseMove += Card_MouseMove;
+
                 cards.Add(card);
                 this.Controls.Add(card);
             }            
         }
+
+
+        private void Card_MouseDown(object sender, MouseEventArgs e)
+        {
+            var card = (PictureBox)sender;
+            if (e.Button == MouseButtons.Right)
+            {
+                card.Left = 400;
+                card.Top = 400;
+            }
+            else if(e.Button == MouseButtons.Left)
+            {
+                mouseHold = true;                
+                deltaX = e.X;
+                deltaY = e.Y;
+            }
+        }
+
+        private void Card_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseHold = false;
+        }
+
+        private void Card_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(!mouseHold)
+            {
+                return;
+            }
+
+            var card = (PictureBox)sender;
+            card.Left = card.Left + e.X - deltaX;
+            card.Top = card.Top + e.Y - deltaY;
+        }
+
 
         private void actionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -77,6 +120,18 @@ namespace PlayingCardsWinforms
                     count++;
                 }
             }
-        }    
+        }
+
+        private void stackCardsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            const int SHIFT = 2;
+            const int DISPLACEMENT = 50;
+
+            for (int i = 0; i < 36; i++)
+            {
+                cards[i].Top = i * SHIFT + DISPLACEMENT;
+                cards[i].Left= i * SHIFT + DISPLACEMENT; ;
+            }
+        }
     }
 }
