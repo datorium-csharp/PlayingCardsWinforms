@@ -36,6 +36,7 @@
             this.deckCardsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.stackCardsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadCardsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,6 +55,8 @@
             // 
             // createCardsToolStripMenuItem
             // 
+            this.createCardsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadCardsToolStripMenuItem});
             this.createCardsToolStripMenuItem.Name = "createCardsToolStripMenuItem";
             this.createCardsToolStripMenuItem.Size = new System.Drawing.Size(84, 22);
             this.createCardsToolStripMenuItem.Text = "Create cards";
@@ -97,6 +100,13 @@
             this.stackCardsToolStripMenuItem.Text = "Stack cards";
             this.stackCardsToolStripMenuItem.Click += new System.EventHandler(this.stackCardsToolStripMenuItem_Click);
             // 
+            // loadCardsToolStripMenuItem
+            // 
+            this.loadCardsToolStripMenuItem.Name = "loadCardsToolStripMenuItem";
+            this.loadCardsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadCardsToolStripMenuItem.Text = "Load cards";
+            this.loadCardsToolStripMenuItem.Click += new System.EventHandler(this.loadCardsToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -123,6 +133,7 @@
         private System.Windows.Forms.ToolStripMenuItem flipCardsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deckCardsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stackCardsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadCardsToolStripMenuItem;
     }
 }
 

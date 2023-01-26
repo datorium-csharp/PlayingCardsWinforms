@@ -23,7 +23,15 @@ namespace PlayingCardsWinforms
         public Form1()
         {
             InitializeComponent();
+            InitializeCanvas();
         }
+
+        private void InitializeCanvas()
+        {
+            this.BackColor = Color.Green;
+            this.Text = "Image gallery";
+        }
+
 
         private void createCardsToolStripMenuItem_Click(object sender, EventArgs e)
         {   
@@ -132,6 +140,15 @@ namespace PlayingCardsWinforms
                 cards[i].Top = i * SHIFT + DISPLACEMENT;
                 cards[i].Left= i * SHIFT + DISPLACEMENT; ;
             }
+        }
+
+        private void loadCardsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PictureBox filePictureBox = null;
+            string folderPath = @"C:\Users\Elchin\Downloads\Image gallery";
+
+
+
         }
     }
 }
