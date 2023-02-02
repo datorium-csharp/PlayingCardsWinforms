@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,8 @@ namespace PlayingCardsWinforms
         int deltaX = 0;
         int deltaY = 0;
 
+        string[] fileNames = null;
+
         public Form1()
         {
             InitializeComponent();
@@ -33,15 +36,32 @@ namespace PlayingCardsWinforms
         }
 
 
-        private void createCardsToolStripMenuItem_Click(object sender, EventArgs e)
-        {   
-            for(int i = 0; i < 36; i += 1)
+        private string SelectFolder()
+        {
+            var selectFolderDialog = new FolderBrowserDialog();
+            var result = selectFolderDialog.ShowDialog();
+
+            if ( result == DialogResult.OK)
             {
-                PictureBox card = new PictureBox();
+                return selectFolderDialog.SelectedPath;
+            }
+
+            return null;
+        }
+
+
+        private void createCardsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var folderPath = SelectFolder();
+            fileNames = Directory.GetFiles(folderPath);
+
+            foreach(var fileName in fileNames)
+            {
+                var card = new PictureBox();
                 card.Width = 100;
                 card.Height = 200;
 
-                card.Image = Properties.Resources.queen_of_diamonds2;
+                card.Image = Image.FromFile(fileName);
                 card.SizeMode = PictureBoxSizeMode.StretchImage;
 
                 card.Top = rand.Next(400);
@@ -53,7 +73,7 @@ namespace PlayingCardsWinforms
 
                 cards.Add(card);
                 this.Controls.Add(card);
-            }            
+            }
         }
 
 
@@ -135,7 +155,7 @@ namespace PlayingCardsWinforms
             const int SHIFT = 2;
             const int DISPLACEMENT = 50;
 
-            for (int i = 0; i < 36; i++)
+            for (int i = 0; i < fileNames.Count(); i++)
             {
                 cards[i].Top = i * SHIFT + DISPLACEMENT;
                 cards[i].Left= i * SHIFT + DISPLACEMENT; ;
@@ -144,9 +164,6 @@ namespace PlayingCardsWinforms
 
         private void loadCardsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PictureBox filePictureBox = null;
-            string folderPath = @"C:\Users\Elchin\Downloads\Image gallery";
-
 
 
         }
